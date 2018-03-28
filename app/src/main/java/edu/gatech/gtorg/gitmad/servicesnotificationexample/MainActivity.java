@@ -17,8 +17,13 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), NotificationService.class);
-                startService(intent);
+                /*
+                 * TODO 5: Create an intent that points to the NotificationService class and use
+                 * that intent to start the service. We call finish() to force the app to close,
+                 * meaning that the only way back into the app is to start it from the app drawer or
+                 * through your handy dandy notification!
+                 */
+                
                 finish();
             }
         });

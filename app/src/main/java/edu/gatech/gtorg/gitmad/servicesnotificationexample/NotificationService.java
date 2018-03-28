@@ -30,20 +30,33 @@ public class NotificationService extends IntentService {
             e.printStackTrace();
         }
 
-        Intent resultIntent = new Intent(this, NotificationResultActivity.class);
-        PendingIntent resultPendingIntent = PendingIntent.getActivity(this, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_ONE_SHOT);
+        /*
+         * TODO 1: Create an intent that takes us from this service to the screen that displays the
+         * Notification Result
+         */
 
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.ic_notification)
-                .setContentTitle("Your notification is here!")
-                .setContentText("Click to go to the app")
-                .setContentIntent(resultPendingIntent)
-                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
-                .setVibrate(new long[]{1000, 1000})
-                .setLights(Color.MAGENTA, 1000, 500)
-                .setAutoCancel(true);
 
-        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        notificationManager.notify(getNotificationID(), notificationBuilder.build());
+        /*
+         * TODO 2: Create a PendingIntent that wraps the Intent from #1. Use the flags for updating
+         * current PendingIntents and only using a PendingIntent once. For more information, see:
+         *
+         * https://developer.android.com/reference/android/app/PendingIntent.html
+         */
+
+
+        /*
+         * TODO 3: Use the NotificationCompat Builder to build the notification. Be sure to set the
+         * icon, content title, content text, and content intent (pending intent). You can also set
+         * the sound, vibration, notification light color, and auto-cancel, but these technically
+         * aren't needed to make the notification work.
+         */
+
+
+        /*
+         * TODO 4: Set up the NotificationManager and use it to notify the system of the
+         * notification. There is a method in this class that can help with the notification ID.
+         */
+
+
     }
 }
