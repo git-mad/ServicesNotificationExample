@@ -9,7 +9,14 @@ import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.support.v4.app.NotificationCompat;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class NotificationService extends IntentService {
+
+    private static final AtomicInteger atomicInteger = new AtomicInteger(0);
+    public static int getNotificationID() {
+        return atomicInteger.incrementAndGet();
+    }
 
     public NotificationService() {
         super("NotificationService");
@@ -37,6 +44,6 @@ public class NotificationService extends IntentService {
                 .setAutoCancel(true);
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        notificationManager.notify(1, notificationBuilder.build());
+        notificationManager.notify(getNotificationID(), notificationBuilder.build());
     }
 }
